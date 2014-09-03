@@ -145,26 +145,30 @@ class Taxonomy_Archive_Links {
 			),
 			'object'
 		);
+		$options = get_option('tet_options');
+		if(!empty($options['archive_taxonomies'])) {
+			$html = '<ul id="'. $this->metabox_list_id .'">';
+			$active = $options['archive_taxonomies'];
+			foreach ( $taxonomies as $name => $tax ) {
+				if( in_array($name,$active) )
+					$html .= sprintf(
+						'<li><label><input type="checkbox" value ="%s" />&nbsp;%s</label></li>',
+						esc_attr( $tax->name ),
+						esc_attr( $tax->labels->name )
+					);
+			}
+			$html .= '</ul>';
 
-		$html = '<ul id="'. $this->metabox_list_id .'">';
-		foreach ( $taxonomies as $tax ) {
-			$html .= sprintf(
-				'<li><label><input type="checkbox" value ="%s" />&nbsp;%s</label></li>',
-				esc_attr( $tax->name ),
-				esc_attr( $tax->labels->name )
-			);
+			// 'Add to Menu' button
+			$html .= '<p class="button-controls"><span class="add-to-menu">';
+			$html .= '<input type="submit"'. disabled( $nav_menu_selected_id, 0, false ) .' class="button-secondary
+				  submit-add-to-menu right" value="'. esc_attr( 'Add to Menu' ) .'" 
+				  name="add-taxonomy-menu-item" id="submit-taxonomy-archives" />';
+			$html .= '<span class="spinner"></span>';
+			$html .= '</span></p>';
+			
+			print $html;
 		}
-		$html .= '</ul>';
-
-		// 'Add to Menu' button
-		$html .= '<p class="button-controls"><span class="add-to-menu">';
-		$html .= '<input type="submit"'. disabled( $nav_menu_selected_id, 0, false ) .' class="button-secondary
-			  submit-add-to-menu right" value="'. esc_attr( 'Add to Menu' ) .'" 
-			  name="add-taxonomy-menu-item" id="submit-taxonomy-archives" />';
-		$html .= '<span class="spinner"></span>';
-		$html .= '</span></p>';
-		
-		print $html;
 	}
 
 	/**
