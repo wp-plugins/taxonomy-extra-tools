@@ -1,0 +1,133 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Taxonomy Extra Tools\n"
+"POT-Creation-Date: 2013-11-18 01:17+0530\n"
+"PO-Revision-Date: 2014-08-24 14:15+0100\n"
+"Last-Translator: 3dolab <boss@3dolab.net>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+
+msgid "Taxonomy Extra Tools settings"
+msgstr "Taxonomy Extra Tools settings"
+
+msgid "Advanced settings for custom Taxonomies and Post Types"
+msgstr "Advanced settings for custom Taxonomies and Post Types"
+
+msgid "Enable Taxonomy Archive"
+msgstr "Enable Taxonomy Archive"
+
+msgid "Enable Post Extra"
+msgstr "Enable Post Extra"
+
+msgid "Enable Title filter"
+msgstr "Enable Title filter"
+
+msgid "Create your custom Post Types and Taxonomies using the plugin %s"
+msgstr "Create your custom Post Types and Taxonomies using the plugin %s"
+
+msgid "Add Images to Categories and Custom Taxonomies using the plugin %s"
+msgstr "Add Images to Categories and Custom Taxonomies using the plugin %s"
+
+msgid "Please select the Post Types you want to filter the title"
+msgstr "Please select the Post Types you want to filter the title"
+
+msgid "Please enter the separator between terms"
+msgstr "Please enter the separator between terms"
+
+msgid "(default: \", \")"
+msgstr "(default: \", \")"
+
+msgid "Please enter the structure of your custom title using placeholders"
+msgstr "Please enter the structure of your custom title using placeholders"
+
+msgid "Available placeholders:"
+msgstr "Available placeholders:"
+
+msgid ""
+"Please select the Taxonomies you want have a root archive page with a clean "
+"permalink"
+msgstr ""
+"Please select the Taxonomies you want have a root archive page with a clean "
+"permalink"
+
+msgid ""
+"Then you could style the output and replicate your post loop by adding a "
+"filter from your template/functions.php file,"
+msgstr ""
+"Then you could style the output and replicate your post loop by adding a "
+"filter from your template/functions.php file,"
+
+msgid "e.g."
+msgstr "e.g."
+
+msgid "3 is for the parameters: $output, $term_object, $taxonomy"
+msgstr "3 is for the parameters: $output, $term_object, $taxonomy"
+
+msgid ""
+"The default Twenty Fourteen / Thirteen / Twelve themes are already supported."
+msgstr ""
+"The default Twenty Fourteen / Thirteen / Twelve themes are already supported."
+
+msgid ""
+"You may need to further customize your template (archive.php, taxonomy.php, "
+"category.php, etc)"
+msgstr ""
+"You may need to further customize your template (archive.php, taxonomy.php, "
+"category.php, etc)"
+
+msgid "Please select the Post Types you want to enable as Post related extras"
+msgstr "Please select the Post Types you want to enable as Post related extras"
+
+msgid "No Available Post Types"
+msgstr "No Available Post Types"
+
+msgid "--No Posts Created--"
+msgstr "--No Posts Created--"
+
+msgid "--Select One--"
+msgstr "--Select One--"
+
+msgid "Permalink to %s"
+msgstr "Permalink to %s"
+
+msgid "Your site&#8217;s most recent Extras."
+msgstr "Your site&#8217;s most recent Extras."
+
+msgid "Recent Extras"
+msgstr "Recent Extras"
+
+msgid ""
+"check if you want to display child terms in the root taxonomy archive / "
+"parent term pages"
+msgstr ""
+"check if you want to display child terms in the root taxonomy archive / "
+"parent term pages"
+
+msgid "check if you want to hide child terms from the parent term page"
+msgstr "check if you want to hide child terms from the parent term page"
+
+msgid "checking both the two settings above will enable a \"flat view\""
+msgstr "checking both the two settings above will enable a \"flat view\""
+
+msgid ""
+"check if you want to display the posts of child terms in the parent term "
+"pages"
+msgstr ""
+"check if you want to display the posts of child terms in the parent term "
+"pages"
+
+msgid ""
+"check if you want to display posts in the root taxonomy archive / parent "
+"term pages"
+msgstr ""
+"check if you want to display posts in the root taxonomy archive / parent "
+"term pages"
+
+msgid "(but why?? unexpected effects on pagination)"
+msgstr "(but why?? unexpected effects on pagination)"
