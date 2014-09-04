@@ -194,7 +194,7 @@ function tet_extra_post_type_metabox() {
 			add_meta_box( 'related_post', __('Post'), 'tet_post_extra_metabox', $post_type );
 }
 function tet_add_extra_to_post_metaboxes() {
-	add_meta_box( 'post_extra', _x( 'Extras', 'post type general name', 'taxonomy-extra-tools' ), 'tet_show_post_extras', 'post' );
+	add_meta_box( 'post_extra', _x( 'Extras', 'post type general name', 'taxonomy-extra-tools' ), 'tet_display_post_extras', 'post' );
 }
 
 function tet_save_post_extra_data( $post_id, $post ) {

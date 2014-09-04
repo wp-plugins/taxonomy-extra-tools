@@ -4,7 +4,7 @@ Tags: taxonomy, custom taxonomy, permalink, custom post type, custom post types,
 License: GPLv2
 Requires at least: 3.4
 Tested up to: 4.0
-Stable tag: 0.1
+Stable tag: 0.2
 
 Enable main archives for your custom Taxonomies and get the most from your custom Post Types by enabling the Extra Tools advanced functions
 
@@ -14,6 +14,7 @@ Taxonomy Extra Tools makes you able to:
 
 * activate a main root archive page, with a clean permalink rewrite structure, for your custom and built-in taxonomies (e.g. mysite.com/custom-taxonomy/, mysite.com/category/ )
 please note that WordPress does not provide this kind of page template by default, as a specific term is usually required by the query
+* simply add your custom and built-in taxonomies archive to the nav menu
 * choose if you like to display the terms and/or their associated (custom) posts as a flat list or maintain the hierarchy levels between parent and child terms
 * easily style the output term list by adding a filter from your theme's functions.php (the Twenties default theme series is already supported)
 * activate a filter to manipulate the post title and insert (custom) taxonomies terms according to a text replacement string
@@ -54,6 +55,11 @@ Unfortunately, at the moment it is not yet possible to select other post types t
 3. the Title Filter in action, the Recent Extras and Current Terms widgets
 
 == Changelog ==
+
+= 0.2 =
+* Bugfix: Extra post metabox
+* Bugfix: Nav menu admin
+* Added .POT file
 
 = 0.1 =
 * First release

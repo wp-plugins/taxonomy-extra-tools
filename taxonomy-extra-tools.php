@@ -6,7 +6,7 @@ Description: Enable main archives for your custom Taxonomies and get the most fr
 Author: 3dolab
 Author URI: http://www.3dolab.net/
 Author Email: info@3dolab.net
-Version: 0.1
+Version: 0.2
 License: GPLv2
 Text Domain:  taxonomy-extra-tools
 Domain Path:  /languages/
