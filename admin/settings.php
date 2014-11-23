@@ -36,7 +36,6 @@ function tet_settings_text() {
 }
 
 function tet_set_title_post_types() {
-	echo '<p>'.__('Please select the Post Types you want to filter the title', 'taxonomy-extra-tools').'</p>';
 	$options = get_option('tet_options');
 	//$disabled_types = array('post', 'attachment', 'page', 'revision', 'nav_menu_item');
 	$disabled_types = array();
@@ -47,7 +46,13 @@ function tet_set_title_post_types() {
 		$title_rewrite_pattern = $options['title_rewrite_pattern'];
 	if(isset($options['title_term_sep']))
 		$title_term_sep = $options['title_term_sep'];
-	foreach (get_post_types() as $type) : if (in_array($type, $disabled_types)) continue; ?>
+	if(isset($options['title_append_taxonomies']))
+		$title_append_taxonomies = $options['title_append_taxonomies']; ?>
+	<input type="checkbox" name="tet_options[title_append_taxonomies]" value="1" <?php checked($title_append_taxonomies); ?> />
+	<?php _e('check if you want to auto append taxonomies after the content', 'taxonomy-extra-tools'); ?><br />
+	<i><?php _e('or use the function', 'taxonomy-extra-tools'); ?></i> <code>tet_render_taxonomies( $classes='', $tax=null, $tax_sep=' ', $term_sep=' ', $link=true, $echo=true, $limit=3, $meta=false );</code><br />
+	<?php echo '<p>'.__('Please select the Post Types you want to filter the title', 'taxonomy-extra-tools').'</p>'; ?>
+	<?php foreach (get_post_types() as $type) : if (in_array($type, $disabled_types)) continue; ?>
 		<input type="checkbox" name="tet_options[title_post_types][<?php echo $type; ?>]" value="<?php echo $type; ?>" <?php checked(isset($options['title_post_types'][$type])); ?> /> <?php echo $type;?><br />
 	<?php endforeach; ?>
 	<?php echo '<p>'.__('Please enter the separator between terms', 'taxonomy-extra-tools').' <i>'.__('(default: ", ")','taxonomy-extra-tools').'</i></p>'; ?>
@@ -84,8 +89,8 @@ function tet_set_taxonomy_archive_rewrite() {
 		<input type="checkbox" name="tet_options[archive_taxonomies][<?php echo $tax; ?>]" value="<?php echo $tax; ?>" <?php checked(isset($taxonomies[$tax])); ?> /> <?php echo $tax;?><br />
 	<?php endforeach; ?>
 	<?php echo '<p>'.__('Then you could style the output and replicate your post loop by adding a filter from your template/functions.php file,', 'taxonomy-extra-tools').'<br />
-		'.__('e.g.', 'taxonomy-extra-tools').' <code>add_filter("tet_term_display_output", "your_custom_filter_fuction", 10, 3);</code><br />
-		<i>'.__('3 is for the parameters: $output, $term_object, $taxonomy','taxonomy-extra-tools').'</i><br />
+		'.__('e.g.', 'taxonomy-extra-tools').' <code>add_filter("tet_term_display_output", "your_custom_filter_fuction", 10, 8);</code><br />
+		<i>'.__('8 is for the parameters:', 'taxonomy-extra-tools').' '.__('$output, $term_object, $taxonomy, $term_index, $terms_count, $num_pages, $parent, $show_meta','taxonomy-extra-tools').'</i><br />
 		'.__('The default Twenty Fourteen / Thirteen / Twelve themes are already supported.', 'taxonomy-extra-tools').' <br />
 		<i>'.__('You may need to further customize your template (archive.php, taxonomy.php, category.php, etc)','taxonomy-extra-tools').'</i></p><br />'; ?>
 	<input type="checkbox" name="tet_options[archive_tax_child]" value="1" <?php checked($child); ?> />

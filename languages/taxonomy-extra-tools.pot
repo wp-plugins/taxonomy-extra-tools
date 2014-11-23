@@ -119,6 +119,12 @@ msgstr ""
 msgid "checking both the two settings above will enable a \"flat view\""
 msgstr ""
 
+msgid "check if you want to auto append taxonomies after the content"
+msgstr ""
+
+msgid "or use the function"
+msgstr ""
+
 #: admin/settings.php:97
 msgid ""
 "check if you want to display the posts of child terms in the parent term "
@@ -253,3 +259,4 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "http://www.3dolab.net/"
 msgstr ""
+

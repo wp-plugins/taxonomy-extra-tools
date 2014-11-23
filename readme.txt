@@ -4,7 +4,7 @@ Tags: taxonomy, custom taxonomy, permalink, custom post type, custom post types,
 License: GPLv2
 Requires at least: 3.4
 Tested up to: 4.0
-Stable tag: 0.2
+Stable tag: 0.3
 
 Enable main archives for your custom Taxonomies and get the most from your custom Post Types by enabling the Extra Tools advanced functions
 
@@ -21,6 +21,7 @@ please note that WordPress does not provide this kind of page template by defaul
 * activate the "post extra" one-to-many relationship by selecting the custom post types that can be associated to posts
 * use the "Recent Extras" widget to show the entries from the selected post types belonging to the current post
 * use the "Current Terms" widget to show the terms from the selected taxonomies assigned to the current post
+* use the conditional tag *is_tax_root_archive()* to check whether the loop belongs to a taxonomy main root archive page
 
 Custom Taxonomies and Post Types must be registered/created previously: the [Types](http://wordpress.org/extend/plugins/types/) plugin is strongly recommended.
 
@@ -42,11 +43,19 @@ Make sure the permalink rewrite structure works as expected by checking through 
 It really depends on the theme in use. You can check against the global variable $tet_bingo and set the title in the template as the taxonomy name.
 You can directly copy the taxonomy.php files provided in this plugin's /template subdirectory to your Twenty Fourteen / Thirteen / Twelve folder or use them as a reference in customizing other themes.
 
+= How can I style the terms output displayed in the taxonomy archive root page? =
+Hook to the filters `tet_term_display_before`, `tet_term_display_output`, `tet_term_display_after` applied to the function *tet_taxonomy_archive_show_children_terms*: 
+quite like the native *get_the_term_list*, but it does run automatically at loop start and with more parameters *($term_link, $term_object, $taxonomy, $index, $count, $max_num_pages, $parent, $show_meta)*
+
 = How can I display the taxonomy terms and/or extra post type entries, related to the current post, only in posts? =
 Add the corresponding widgets from the admin screen, check the "current post" option and then set the visibility accordingly (through Jetpack, Widget Logic or other similar functions).
 
 = How can I select custom post types as recipients of the "Extra" post types? =
 Unfortunately, at the moment it is not yet possible to select other post types than the default post, but it could be possible in a further release.
+
+= How can I display the taxonomies associated to a certain post? =
+You can directly use the function `tet_render_taxonomies( $classes, $taxonomies, $tax_separator, $term_separator, $link, $echo, $limit, $show_meta )` or wrap and hook it to a filter, 
+with additional filters available *(tet_render_taxonomies_link, tet_render_taxonomies_sep,tet_render_taxonomies_sep2)*
 
 == Screenshots ==
 
@@ -55,6 +64,12 @@ Unfortunately, at the moment it is not yet possible to select other post types t
 3. the Title Filter in action, the Recent Extras and Current Terms widgets
 
 == Changelog ==
+
+= 0.3 =
+* Additional parameters in terms list
+* Improved output filters
+* Added function tet_render_taxonomies
+* Added is_tax_root_archive()
 
 = 0.2 =
 * Bugfix: Extra post metabox

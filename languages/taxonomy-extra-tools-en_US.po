@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Taxonomy Extra Tools\n"
 "POT-Creation-Date: 2013-11-18 01:17+0530\n"
-"PO-Revision-Date: 2014-08-24 14:15+0100\n"
+"PO-Revision-Date: 2014-11-23 01:58+0100\n"
 "Last-Translator: 3dolab <boss@3dolab.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -33,6 +33,9 @@ msgstr "Create your custom Post Types and Taxonomies using the plugin %s"
 
 msgid "Add Images to Categories and Custom Taxonomies using the plugin %s"
 msgstr "Add Images to Categories and Custom Taxonomies using the plugin %s"
+
+msgid "Flush any residual permalink structure rules using the plugin %s"
+msgstr "Flush any residual permalink structure rules using the plugin %s"
 
 msgid "Please select the Post Types you want to filter the title"
 msgstr "Please select the Post Types you want to filter the title"
@@ -66,8 +69,8 @@ msgstr ""
 msgid "e.g."
 msgstr "e.g."
 
-msgid "3 is for the parameters: $output, $term_object, $taxonomy"
-msgstr "3 is for the parameters: $output, $term_object, $taxonomy"
+msgid "8 is for the parameters:"
+msgstr "8 is for the parameters:"
 
 msgid ""
 "The default Twenty Fourteen / Thirteen / Twelve themes are already supported."
@@ -131,3 +134,9 @@ msgstr ""
 
 msgid "(but why?? unexpected effects on pagination)"
 msgstr "(but why?? unexpected effects on pagination)"
+
+msgid "check if you want to auto append taxonomies after the content"
+msgstr "check if you want to auto append taxonomies after the content"
+
+msgid "or use the function"
+msgstr "or use the function"
