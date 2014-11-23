@@ -1,0 +1,148 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Taxonomy Extra Tools\n"
+"POT-Creation-Date: 2013-11-18 01:17+0530\n"
+"PO-Revision-Date: 2014-11-23 01:58+0100\n"
+"Last-Translator: 3dolab <boss@3dolab.net>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+
+msgid "Taxonomy Extra Tools settings"
+msgstr "Impostazioni Taxonomy Extra Tools"
+
+msgid "Advanced settings for custom Taxonomies and Post Types"
+msgstr "Opzioni avanzate per tassonomie e tipi di post personalizzati"
+
+msgid "Enable Taxonomy Archive"
+msgstr "Attiva Archivi Tassonomia"
+
+msgid "Enable Post Extra"
+msgstr "Attiva Extra dei Post"
+
+msgid "Enable Title filter"
+msgstr "Attiva riscrittura Titolo Post"
+
+msgid "Create your custom Post Types and Taxonomies using the plugin %s"
+msgstr "Crea tassonomie e tipi di post personalizzati utilizzando il plugin %s"
+
+msgid "Add Images to Categories and Custom Taxonomies using the plugin %s"
+msgstr ""
+"Aggiungi e associa immagini a categorie e tassonomie personalizzate "
+"utilizzando il plugin %s"
+
+msgid "Flush any residual permalink structure rules using the plugin %s"
+msgstr "Rinnova da ogni residuo la struttura dei permalink con il plugin %s"
+
+msgid "Please select the Post Types you want to filter the title"
+msgstr "Scegli i tipi di post di cui modificare il titolo"
+
+msgid "Please enter the separator between terms"
+msgstr "Inserisci il separatore tra i termini di ogni tassonomia"
+
+msgid "(default: \", \")"
+msgstr "(predefinito: \", \")"
+
+msgid "Please enter the structure of your custom title using placeholders"
+msgstr "Inserisci la struttura personalizzata del titolo usando i segnaposto"
+
+msgid "Available placeholders:"
+msgstr "Segnaposto disponibili:"
+
+msgid ""
+"Please select the Taxonomies you want to have a root archive page with a "
+"clean permalink"
+msgstr ""
+"Scegli le tassonomie che avranno una pagina di archivio radice con un "
+"permalink pulito"
+
+msgid ""
+"Then you could style the output and replicate your post loop by adding a "
+"filter from your template/functions.php file,"
+msgstr ""
+"Quindi puoi personalizzare lo stile del risultato visualizzato e replicare "
+"il loop dei post aggiungendo un filtro dal file functions.php del tema in uso"
+
+msgid "e.g."
+msgstr "ad es."
+
+msgid "8 is for the parameters:"
+msgstr "dove 8 sta per i tre parametri passati:"
+
+msgid ""
+"The default Twenty Fourteen / Thirteen / Twelve themes are already supported."
+msgstr ""
+"Per i temi predefiniti Twenty Fourteen / Thirteen / Twelve è tutto già "
+"pronto."
+
+msgid ""
+"You may need to further customize your template (archive.php, taxonomy.php, "
+"category.php, etc)"
+msgstr ""
+"Potresti comunque aver bisogno di personalizzare ulteriormente i template "
+"(archive.php, taxonomy.php, category.php, etc)"
+
+msgid "Please select the Post Types you want to enable as Post related extras"
+msgstr "Scegli i tipi di post che vuoi abilitare come extra associati ai post"
+
+msgid "No Available Post Types"
+msgstr "Nessun tipo di post disponibile"
+
+msgid "--No Posts Created--"
+msgstr "--Nessun Post creato--"
+
+msgid "--Select One--"
+msgstr "--Scegli--"
+
+msgid "Permalink to %s"
+msgstr "Link a %s"
+
+msgid "Your site&#8217;s most recent Extras."
+msgstr "Gli Extra più recenti."
+
+msgid "Recent Extras"
+msgstr "Extra"
+
+msgid ""
+"check if you want to display child terms in the root taxonomy archive / "
+"parent term pages"
+msgstr ""
+"mostra i termini di livello inferiore nell'archivio principale della "
+"tassonomia o nel termine superiore"
+
+msgid "check if you want to hide child terms from the parent term page"
+msgstr ""
+"nasconde i termini di livello inferiore dalla pagina del termine superiore"
+
+msgid "checking both the two settings above will enable a \"flat view\""
+msgstr ""
+"selezionando le due precedenti opzioni insieme si abilita una "
+"visualizzazione \"piatta\" dei termini"
+
+msgid ""
+"check if you want to display the posts of child terms in the parent term "
+"pages"
+msgstr ""
+"mostra i post associati ai termini di livello inferiore nella pagina del "
+"termine superiore"
+
+msgid ""
+"check if you want to display posts in the root taxonomy archive / parent "
+"term pages"
+msgstr ""
+"mostra tutti i post associati nell'archivio principale della tassonomia"
+
+msgid "(but why?? unexpected effects on pagination)"
+msgstr ""
+"(ma perché mai? possibili controindicazioni sulla suddivisione in pagine)"
+
+msgid "check if you want to auto append taxonomies after the content"
+msgstr "mostra automaticamente le tassonomie dopo il contenuto del post"
+
+msgid "or use the function"
+msgstr "oppure usa la funzione"
