@@ -94,32 +94,91 @@ function tet_modified_post_title ($title, $sep=', ') {
 	return $title;
 }
 
-function tet_taxonomy_archive_wp_title( $title, $sep, $seplocation ) {
+function tet_taxonomy_archive_wp_title( $title, $sep = '', $seplocation = '' ) {
 	if ( is_tax() ) {
-		global $wpdb, $wp_locale, $wp_query;
-
+		global $wpdb, $wp_locale, $wp_query;		
+		
 		$t_sep = '%WP_TITLE_SEP%'; // Temporary separator, for accurate flipping, if necessary
+		
+		$default_title_array = explode(' '.$sep.' ', $title);
+		
+		if ( '' === trim( $seplocation ) )
+			$seplocation = ( is_rtl() ) ? 'left' : 'right';
+		if ( is_plugin_active( 'wordpress-seo/wp-seo.php' ) && class_exists( 'WPSEO_Replace_Vars' ) && $sep == '' ) {
+			$sep = wpseo_replace_vars( '%%sep%%', array() );
+			$sep = ' ' . trim( $sep ) . ' ';
+			$default_title_array = explode($sep, $title);		
+		}
 		
 		$options = get_option('tet_options');
 		$active_taxonomies = $options['archive_taxonomies'];
+		
 		if(!$active_taxonomies)
 			$active_taxonomies = array();
+		
 		if( isset($wp_query->query_vars['taxonomy']) && !empty($wp_query->query_vars['taxonomy']) && in_array($wp_query->query_vars['taxonomy'], $active_taxonomies) )
 			$taxonomy = $wp_query->query_vars['taxonomy'];
 		elseif(isset($wp_query->query['category_name']) && in_array('category', $active_taxonomies))
 			$taxonomy = 'category';
 		elseif(isset($wp_query->query['tag']) && in_array('tag', $active_taxonomies))
 			$taxonomy = 'post_tag';
+			
 		if( $taxonomy && isset($wp_query->query_vars[$taxonomy]) && empty($wp_query->query_vars[$taxonomy]) && in_array($taxonomy, $active_taxonomies) ) {
 			$tax = get_taxonomy( $taxonomy );
-			$title = $tax->labels->name;
+			$taxname = $tax->labels->name;
+			foreach($default_title_array as $i => $title_bit){
+				$tax_terms = get_terms($taxonomy, array('fields'=>'names'));
+				if(!empty($tax_terms) && !is_wp_error($tax_terms) && in_array($title_bit,$tax_terms))
+					unset($default_title_array[$i]);
+			}
+			if(!in_array($taxname,$default_title_array))
+				array_unshift($default_title_array,$taxname);
+			if ( is_plugin_active( 'wordpress-seo/wp-seo.php' ) && class_exists( 'WPSEO_Frontend' ) ){
+				//global $wpseo_front;
+				//$seo_title = $wpseo_front->get_title_from_options( 'title-tax-'.$taxonomy );
+				//$pattern = $wpseo_front->options['title-tax-'.$taxonomy];
+				$pattern = WPSEO_Frontend::get_instance()->get_title_from_options('title-tax-'.$taxonomy);
+				if(strpos($pattern,'%%taxonomy_name%%')!==false){
+					$pattern = str_replace('%%taxonomy_name%%',$taxname,$pattern);
+					//$pattern = str_replace('%%ct_'.$taxname.'%%',$taxname,$pattern);
+					$pattern = str_replace('%%term_title%% %%sep%%','',$pattern);
+					$pattern = str_replace('%%term_title%% ','',$pattern);
+					$pattern = str_replace('%%term_title%%','',$pattern);
+				}else
+					$pattern = str_replace('%%term_title%%',$taxname,$pattern);
+				$pattern = str_replace('%%term_description%%','',$pattern);
+				$term = get_queried_object();
+				$seo_title = wpseo_replace_vars( $pattern, $term );
+				/*
+				//$seo_title = wpseo_replace_vars( $wpseo_front->options['title-tax-'.$taxonomy], array() );
+				$seo_term_name = wpseo_replace_vars( '%%term_title%%', array() );
+				$seo_term_desc = wpseo_replace_vars( '%%term_description%%', array() );
+				//$seo_title = str_replace($seo_term_name,$taxname,$seo_title);
+				//$seo_title = str_replace($seo_term_desc,'',$seo_title);
+				*/
+				//return $seo_title;
+				return esc_html( strip_tags( stripslashes( $seo_title ) ) );
+			}
 		} elseif (isset($wp_query->query_vars[$taxonomy]) && !empty($wp_query->query_vars[$taxonomy]) && in_array($taxonomy, $active_taxonomies) ) {
 			$term = get_queried_object();
 			if ( $term ) {
 				$tax = get_taxonomy( $term->taxonomy );
-				$title = single_term_title( $tax->labels->singular_name . $t_sep, false );
+				//$title = single_term_title( $tax->labels->singular_name . $t_sep, false );
+				$termname = $term->name;
+				if(!in_array($termname,$default_title_array))
+					array_unshift($default_title_array,$termname);
+				if ( is_plugin_active( 'wordpress-seo/wp-seo.php' ) && class_exists( 'WPSEO_Frontend' ) ){
+					//global $wpseo_front;
+					//$pattern = $wpseo_front->options['title-tax-'.$taxonomy];
+					$pattern = WPSEO_Frontend::get_instance()->get_title_from_options('title-tax-'.$taxonomy);
+					$pattern = str_replace('%%taxonomy_name%%',$tax->labels->name,$pattern);
+					$pattern = str_replace('%%term_title%%',$termname,$pattern);
+					$seo_title = wpseo_replace_vars( $pattern, $term );
+					return esc_html( strip_tags( stripslashes( $seo_title ) ) );
+				}
 			}
 		}
+		$title = implode(' '.$sep.' ', $default_title_array);
 		$prefix = '';
 		if ( !empty($title) )
 			$prefix = " $sep ";

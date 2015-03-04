@@ -1,12 +1,12 @@
 === Taxonomy Extra Tools ===
 Contributors: 3dolab
-Tags: taxonomy, custom taxonomy, permalink, custom post type, custom post types, archive, post type, post types
+Tags: taxonomy, custom taxonomy, permalink, title, nav menu, menu, archive, custom post type, custom post types, post type, post types
 License: GPLv2
 Requires at least: 3.4
-Tested up to: 4.0
-Stable tag: 0.3
+Tested up to: 4.1
+Stable tag: 0.4
 
-Enable main archives for your custom Taxonomies and get the most from your custom Post Types by enabling the Extra Tools advanced functions
+Enable main archives with clean titles, permalinks and nav menu items for your custom Taxonomies by enabling the Extra Tools advanced functions
 
 == Description ==
 
@@ -22,6 +22,8 @@ please note that WordPress does not provide this kind of page template by defaul
 * use the "Recent Extras" widget to show the entries from the selected post types belonging to the current post
 * use the "Current Terms" widget to show the terms from the selected taxonomies assigned to the current post
 * use the conditional tag *is_tax_root_archive()* to check whether the loop belongs to a taxonomy main root archive page
+* get a clean HTML title tag with the taxonomy name in main taxonomy root archives
+* use the %%taxonomy_name%% replacement in conjunction with the WordPress SEO plugin by Yoast
 
 Custom Taxonomies and Post Types must be registered/created previously: the [Types](http://wordpress.org/extend/plugins/types/) plugin is strongly recommended.
 
@@ -39,8 +41,10 @@ Make sure the permalink rewrite structure works as expected by checking through 
 
 == Frequently Asked Questions ==
 
-= How can I display a proper title in the archive page? =
-It really depends on the theme in use. You can check against the global variable $tet_bingo and set the title in the template as the taxonomy name.
+= How can I display a proper title in the taxonomy archive pages? =
+This plugin automatically applies a filter to the HTML title tag shown in the browser bar, compatibility with the WordPress SEO plugin by Yoast is further improved with the additional %%taxonomy_name%% replacement.
+As for the taxonomy archive page, it really depends on the theme in use. First you basically need a proper taxonomy.php template file just as archive.php or category.php in your theme's directory.
+Then you can check against the conditional tag `is_tax_root_archive()` or the global variable `$tet_bingo` and set the title in the template as the taxonomy name, instead of the term title or whatever.
 You can directly copy the taxonomy.php files provided in this plugin's /template subdirectory to your Twenty Fourteen / Thirteen / Twelve folder or use them as a reference in customizing other themes.
 
 = How can I style the terms output displayed in the taxonomy archive root page? =
@@ -51,7 +55,7 @@ quite like the native *get_the_term_list*, but it does run automatically at loop
 Add the corresponding widgets from the admin screen, check the "current post" option and then set the visibility accordingly (through Jetpack, Widget Logic or other similar functions).
 
 = How can I select custom post types as recipients of the "Extra" post types? =
-Unfortunately, at the moment it is not yet possible to select other post types than the default post, but it could be possible in a further release.
+Unfortunately, no other type than the default post can be selected: this is meant as a simple connection feature, while the [Posts 2 Posts](https://wordpress.org/plugins/posts-to-posts/) plugin is better suited to create more complex many-to-many relationships between posts of any type and users.
 
 = How can I display the taxonomies associated to a certain post? =
 You can directly use the function `tet_render_taxonomies( $classes, $taxonomies, $tax_separator, $term_separator, $link, $echo, $limit, $show_meta )` or wrap and hook it to a filter, 
@@ -64,6 +68,10 @@ with additional filters available *(tet_render_taxonomies_link, tet_render_taxon
 3. the Title Filter in action, the Recent Extras and Current Terms widgets
 
 == Changelog ==
+
+= 0.4 =
+* Improved compatibility with WP SEO by Yoast
+* Bugfix: globals in the is_tax_root_archive() conditional tag
 
 = 0.3 =
 * Additional parameters in terms list

@@ -190,7 +190,7 @@ function tet_remove_404_on_tax_archive( ) {
 	add_filter( 'comments_open', 'tet_close_comments_dummy_post', 10, 2);
 	$postobj = (object) $postarr;
 	//echo '<pre>post:'; print_r($postobj); echo '</pre>';
-	$wp_query->posts = array( $postobj);
+	$wp_query->posts = array( $postobj );
 }
 function tet_taxonomy_archive_show_children_terms( $query ) {
 	if(!($query)){
@@ -233,11 +233,12 @@ function tet_taxonomy_archive_show_children_terms( $query ) {
 				$field = 'slug';
 			$termobj = get_term_by( $field, $term, $taxonomy );
 			//if($termobj->parent != 0){
+			if($termobj){
 				if($field == 'id')
 					$parent = $term;
 				else
 					$parent = $termobj->term_id;
-			//}
+			}
 		}		
 	} elseif(isset($q['taxonomy']) && !empty($q['taxonomy']) && (!isset($q['term']) || empty($q['term']))){
 		$taxonomy = $q['taxonomy'];

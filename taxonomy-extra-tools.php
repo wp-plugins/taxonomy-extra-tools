@@ -6,7 +6,7 @@ Description: Enable main archives for your custom Taxonomies and get the most fr
 Author: 3dolab
 Author URI: http://www.3dolab.net/
 Author Email: info@3dolab.net
-Version: 0.3
+Version: 0.4
 License: GPLv2
 Text Domain:  taxonomy-extra-tools
 Domain Path:  /languages/
@@ -84,7 +84,8 @@ function register_taxonomy_extra_tools() {
 	add_action( 'save_post', 'tet_save_post_extra_data', 10, 2 );
 	add_filter( 'wp_insert_post_data','tet_post_extra_pre_update', 100, 2 );
 	add_filter('the_title', 'tet_modified_post_title');
-	add_filter('wp_title', 'tet_taxonomy_archive_wp_title', 1, 3);
+	add_filter('wp_title', 'tet_taxonomy_archive_wp_title', 10, 3);
+	add_filter('wpseo_title', 'tet_taxonomy_archive_wp_title', 10, 3);
 	add_action( 'loop_start', 'tet_taxonomy_archive_show_children_terms' );
 	
 	if($options['title_append_taxonomies']==true)

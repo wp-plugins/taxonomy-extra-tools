@@ -282,7 +282,8 @@ class Taxonomy_Archive_Links {
 	 * @return array $items
 	 */
 	public function maybe_make_current( $items ) {
-		foreach ( $items as $item ) {
+
+		foreach ( $items as $index => $item ) {
 			if ( 'taxonomy-archive' !== $item->type )
 				continue;
 
@@ -310,6 +311,17 @@ class Taxonomy_Archive_Links {
 					$classes[] = 'current-menu-ancestor';
 					$items[ $key ]->current_item_ancestor = true;
 				}
+
+
+				//if ( $parent_item->type == 'post_type' && $key = array_search('current_page_parent', $classes) !== false ) {
+				if ( $parent_item->type == 'post_type' && in_array('current_page_parent', $classes) && $parent_item->object == 'page' && get_option('page_for_posts') == $parent_item->object_id) {
+					$unset = false;
+					foreach($classes as $index=>$class)
+						if($class == 'current_page_parent')
+							$unset = $index;
+					if($unset)
+						unset($classes[$unset]);
+				}				
 
 				$items[ $key ]->classes = array_unique( $classes );
 			}

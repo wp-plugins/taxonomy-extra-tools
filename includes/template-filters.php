@@ -34,7 +34,7 @@ function tet_taxonomy_term_loop_template ($output, $term, $taxonomy) {
 }
 
 function is_tax_root_archive() {
-	global $tet_bingo;
+	global $wp_query, $tet_bingo;
 	$tq = array();
 	if ( !empty( $wp_query->tax_query ) && $wp_query->is_tax() && $wp_query->is_archive() && $wp_query->is_main_query() )
 		$tq = $wp_query->tax_query;
