@@ -1,0 +1,262 @@
+# Copyright (C) 2014 Taxonomy Extra Tools
+# This file is distributed under the same license as the Taxonomy Extra Tools package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Taxonomy Extra Tools 0.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/taxonomy-extra-tools\n"
+"POT-Creation-Date: 2014-09-04 21:00:34+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: admin/nav-menu.php:90
+msgid "Taxonomy Archives"
+msgstr ""
+
+#: admin/settings.php:3
+msgid "Taxonomy Extra Tools settings"
+msgstr ""
+
+#. #-#-#-#-#  plugin.pot (Taxonomy Extra Tools 0.1)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: admin/settings.php:3 admin/settings.php:131
+msgid "Taxonomy Extra Tools"
+msgstr ""
+
+#: admin/settings.php:9
+msgid "Advanced settings for custom Taxonomies and Post Types"
+msgstr ""
+
+#: admin/settings.php:11
+msgid "Enable Taxonomy Archive"
+msgstr ""
+
+#: admin/settings.php:12
+msgid "Enable Post Extra"
+msgstr ""
+
+#: admin/settings.php:13
+msgid "Enable Title filter"
+msgstr ""
+
+#: admin/settings.php:33
+msgid "Create your custom Post Types and Taxonomies using the plugin %s"
+msgstr ""
+
+#: admin/settings.php:34
+msgid "Add Images to Categories and Custom Taxonomies using the plugin %s"
+msgstr ""
+
+#: admin/settings.php:35
+msgid "Flush any residual permalink structure rules using the plugin %s"
+msgstr ""
+
+#: admin/settings.php:39
+msgid "Please select the Post Types you want to filter the title"
+msgstr ""
+
+#: admin/settings.php:53
+msgid "Please enter the separator between terms"
+msgstr ""
+
+#: admin/settings.php:53
+msgid "(default: \", \")"
+msgstr ""
+
+#: admin/settings.php:56
+msgid "Please enter the structure of your custom title using placeholders"
+msgstr ""
+
+#: admin/settings.php:58
+msgid "Available placeholders:"
+msgstr ""
+
+#: admin/settings.php:73
+msgid ""
+"Please select the Taxonomies you want to have a root archive page with a "
+"clean permalink"
+msgstr ""
+
+#: admin/settings.php:86
+msgid ""
+"Then you could style the output and replicate your post loop by adding a "
+"filter from your template/functions.php file,"
+msgstr ""
+
+#: admin/settings.php:87
+msgid "e.g."
+msgstr ""
+
+#: admin/settings.php:88
+msgid "3 is for the parameters: $output, $term_object, $taxonomy"
+msgstr ""
+
+#: admin/settings.php:89
+msgid ""
+"The default Twenty Fourteen / Thirteen / Twelve themes are already supported."
+msgstr ""
+
+#: admin/settings.php:90
+msgid ""
+"You may need to further customize your template (archive.php, taxonomy.php, "
+"category.php, etc)"
+msgstr ""
+
+#: admin/settings.php:92
+msgid ""
+"check if you want to display child terms in the root taxonomy archive / "
+"parent term pages"
+msgstr ""
+
+#: admin/settings.php:94
+msgid "check if you want to hide child terms from the parent term page"
+msgstr ""
+
+#: admin/settings.php:95
+msgid "checking both the two settings above will enable a \"flat view\""
+msgstr ""
+
+msgid "check if you want to auto append taxonomies after the content"
+msgstr ""
+
+msgid "or use the function"
+msgstr ""
+
+#: admin/settings.php:97
+msgid ""
+"check if you want to display the posts of child terms in the parent term "
+"pages"
+msgstr ""
+
+#: admin/settings.php:99
+msgid ""
+"check if you want to display posts in the root taxonomy archive / parent "
+"term pages"
+msgstr ""
+
+#: admin/settings.php:100
+msgid "(but why?? unexpected effects on pagination)"
+msgstr ""
+
+#: admin/settings.php:106
+msgid "Please select the Post Types you want to enable as Post related extras"
+msgstr ""
+
+#: admin/settings.php:116
+msgid "No Available Post Types"
+msgstr ""
+
+#: admin/settings.php:126
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: admin/settings.php:145
+msgid "Select a Post"
+msgstr ""
+
+#: admin/settings.php:154
+msgid "--No Posts Created--"
+msgstr ""
+
+#: admin/settings.php:156
+msgid "--Select One--"
+msgstr ""
+
+#: admin/settings.php:181
+msgid "No Extras"
+msgstr ""
+
+#: admin/settings.php:184
+msgid "No Active Extra Post Types"
+msgstr ""
+
+#: admin/settings.php:194
+msgid "Post"
+msgstr ""
+
+#: admin/settings.php:197
+msgctxt "post type general name"
+msgid "Extras"
+msgstr ""
+
+#: taxonomy-extra-tools.php:589
+msgid "Permalink to %s"
+msgstr ""
+
+#: widgets/current-terms.php:5
+msgid "Your current post taxonomy terms"
+msgstr ""
+
+#: widgets/current-terms.php:6
+msgid "Current Terms"
+msgstr ""
+
+#: widgets/current-terms.php:44
+msgid "Tags"
+msgstr ""
+
+#: widgets/current-terms.php:138 widgets/recent-extras.php:117
+msgid "Title:"
+msgstr ""
+
+#: widgets/current-terms.php:141 widgets/recent-extras.php:120
+msgid "Number of posts to show:"
+msgstr ""
+
+#: widgets/current-terms.php:145
+msgid "Display post count?"
+msgstr ""
+
+#: widgets/current-terms.php:148
+msgid "Display term thumbnail?"
+msgstr ""
+
+#: widgets/current-terms.php:151
+msgid "Display term description?"
+msgstr ""
+
+#: widgets/current-terms.php:155
+msgid "Only Terms related to the current post"
+msgstr ""
+
+#: widgets/current-terms.php:158
+msgid "Taxonomy:"
+msgstr ""
+
+#: widgets/recent-extras.php:5
+msgid "Your site&#8217;s most recent Extras."
+msgstr ""
+
+#: widgets/recent-extras.php:6 widgets/recent-extras.php:36
+msgid "Recent Extras"
+msgstr ""
+
+#: widgets/recent-extras.php:124
+msgid "Display post date?"
+msgstr ""
+
+#: widgets/recent-extras.php:128
+msgid "Only Extras related to current post"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.3dolab.net/blog/dev/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Enable main archives for your custom Taxonomies and get the most from your "
+"custom Post Types by enabling the Extra Tools advanced functions"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "3dolab"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.3dolab.net/"
+msgstr ""
+
