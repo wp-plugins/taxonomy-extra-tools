@@ -4,7 +4,7 @@ Tags: taxonomy, custom taxonomy, permalink, title, nav menu, menu, archive, cust
 License: GPLv2
 Requires at least: 3.4
 Tested up to: 4.1
-Stable tag: 0.4
+Stable tag: 0.41
 
 Enable main archives with clean titles, permalinks and nav menu items for your custom Taxonomies by enabling the Extra Tools advanced functions
 
@@ -68,6 +68,9 @@ with additional filters available *(tet_render_taxonomies_link, tet_render_taxon
 3. the Title Filter in action, the Recent Extras and Current Terms widgets
 
 == Changelog ==
+
+= 0.41 =
+* Fix compatibility issue with older versions of WP SEO by Yoast
 
 = 0.4 =
 * Improved compatibility with WP SEO by Yoast

@@ -125,7 +125,7 @@ function tet_taxonomy_archive_wp_title( $title, $sep = '', $seplocation = '' ) {
 			
 		if( $taxonomy && isset($wp_query->query_vars[$taxonomy]) && empty($wp_query->query_vars[$taxonomy]) && in_array($taxonomy, $active_taxonomies) ) {
 			$tax = get_taxonomy( $taxonomy );
-			$taxname = $tax->labels->name;
+			$taxname = strtolower($tax->labels->name);
 			foreach($default_title_array as $i => $title_bit){
 				$tax_terms = get_terms($taxonomy, array('fields'=>'names'));
 				if(!empty($tax_terms) && !is_wp_error($tax_terms) && in_array($title_bit,$tax_terms))
@@ -134,20 +134,25 @@ function tet_taxonomy_archive_wp_title( $title, $sep = '', $seplocation = '' ) {
 			if(!in_array($taxname,$default_title_array))
 				array_unshift($default_title_array,$taxname);
 			if ( is_plugin_active( 'wordpress-seo/wp-seo.php' ) && class_exists( 'WPSEO_Frontend' ) ){
-				//global $wpseo_front;
-				//$seo_title = $wpseo_front->get_title_from_options( 'title-tax-'.$taxonomy );
-				//$pattern = $wpseo_front->options['title-tax-'.$taxonomy];
-				$pattern = WPSEO_Frontend::get_instance()->get_title_from_options('title-tax-'.$taxonomy);
-				if(strpos($pattern,'%%taxonomy_name%%')!==false){
-					$pattern = str_replace('%%taxonomy_name%%',$taxname,$pattern);
-					//$pattern = str_replace('%%ct_'.$taxname.'%%',$taxname,$pattern);
+				$term = get_queried_object();
+				if(method_exists('WPSEO_Frontend','get_instance')){
+					//$pattern = WPSEO_Frontend::get_instance()->get_title_from_options('title-tax-'.$taxonomy);
+					$pattern = WPSEO_Frontend::get_instance()->options['title-tax-'.$taxonomy];
+				}else{
+					global $wpseo_front;
+					//$seo_title = $wpseo_front->get_title_from_options( 'title-tax-'.$taxonomy );
+					$pattern = $wpseo_front->options['title-tax-'.$taxonomy];
+				}
+				
+				if(strpos($pattern,'%%taxonomy_name%%')!==false||strpos($pattern,'%%ct_'.$taxname.'%%')!==false){
+					$pattern = str_replace('%%taxonomy_name%%',$tax->labels->name,$pattern);
+					$pattern = str_replace('%%ct_'.$taxname.'%%',$tax->labels->name,$pattern);
 					$pattern = str_replace('%%term_title%% %%sep%%','',$pattern);
 					$pattern = str_replace('%%term_title%% ','',$pattern);
 					$pattern = str_replace('%%term_title%%','',$pattern);
 				}else
-					$pattern = str_replace('%%term_title%%',$taxname,$pattern);
+					$pattern = str_replace('%%term_title%%',$tax->labels->name,$pattern);
 				$pattern = str_replace('%%term_description%%','',$pattern);
-				$term = get_queried_object();
 				$seo_title = wpseo_replace_vars( $pattern, $term );
 				/*
 				//$seo_title = wpseo_replace_vars( $wpseo_front->options['title-tax-'.$taxonomy], array() );
@@ -165,6 +170,7 @@ function tet_taxonomy_archive_wp_title( $title, $sep = '', $seplocation = '' ) {
 				$tax = get_taxonomy( $term->taxonomy );
 				//$title = single_term_title( $tax->labels->singular_name . $t_sep, false );
 				$termname = $term->name;
+				$taxname = strtolower($tax->labels->name);
 				if(!in_array($termname,$default_title_array))
 					array_unshift($default_title_array,$termname);
 				if ( is_plugin_active( 'wordpress-seo/wp-seo.php' ) && class_exists( 'WPSEO_Frontend' ) ){
@@ -172,6 +178,7 @@ function tet_taxonomy_archive_wp_title( $title, $sep = '', $seplocation = '' ) {
 					//$pattern = $wpseo_front->options['title-tax-'.$taxonomy];
 					$pattern = WPSEO_Frontend::get_instance()->get_title_from_options('title-tax-'.$taxonomy);
 					$pattern = str_replace('%%taxonomy_name%%',$tax->labels->name,$pattern);
+					$pattern = str_replace('%%ct_'.$tax->labels->name.'%%',$tax->labels->name,$pattern);
 					$pattern = str_replace('%%term_title%%',$termname,$pattern);
 					$seo_title = wpseo_replace_vars( $pattern, $term );
 					return esc_html( strip_tags( stripslashes( $seo_title ) ) );
